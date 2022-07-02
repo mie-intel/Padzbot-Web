@@ -1,3 +1,3 @@
-window.addEventListener("resize", ()=>{
-    document.location.reload();
-});
+// window.addEventListener("resize", ()=>{
+//     document.location.reload();
+// });
