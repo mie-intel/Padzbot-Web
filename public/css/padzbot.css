@@ -1,0 +1,180 @@
+#padzbot {
+    z-index: 4;
+}
+
+.padzbot {
+    background-color: #f8f8f8;
+}
+
+.padzbot .firstSection{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 10vh solid #E1E1E1;
+    z-index: 5;
+}
+
+.padzbot .titleContainer{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.51vw;
+    position: relative;
+}
+
+.padzbot .titleText{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    width: 100%;
+    height: max-content;
+    text-align: center;
+    margin-bottom: 10em;
+    position: relative;
+    z-index: -1;
+}
+
+.padzbot .titleText h1{
+    font-size: 5em;
+}
+
+.padzbot .titleImage{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    bottom: 12vh;
+    z-index: 2;
+}
+
+.padzbot .titleImage .timg {
+    height: 100%;
+    max-height: 8em;
+    position: absolute;
+}
+
+
+/* Title Image Middle */
+
+.padzbot .titleImage .titleImageMiddle:not(.timg) {
+    position: fixed;
+    transform: translateX(-33%);
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.padzbot .titleImage .titleImageMiddle.XStatic {
+    width: 30vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-33%);
+}
+
+.padzbot .titleImage .titleImageMiddle img{
+    width: 100%;
+    position: absolute;
+}
+
+.padzbot .titleImage .timgS {
+    transition-duration: 300ms;
+    opacity: 1;
+    position: relative;
+}
+
+.padzbot .titleImage .titleImageMiddle {
+    transition-property: opacity;
+}
+
+.padzbot .titleImage .timgPadma {
+    transition-property: left opacity;
+    left: 0;
+}
+
+.padzbot .titleImage .timgWrench{
+    transition-property: right opacity;
+    right: 0;
+}
+
+.padzbot .titleImage .timgS.timgHidden {
+    opacity: 0;
+}
+
+.padzbot .titleImage .timgPadma.timgHidden {
+    left: -2em;
+}
+
+.padzbot .titleImage .timgWrench.timgHidden{
+    right: -2em;
+}
+
+/* Second section */
+.padzbot .secondSection{
+    width: 100%;
+    height: 40%;
+    position: relative;
+    background-color: #E1E1E1;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vw;
+    z-index: 4;
+}
+
+.padzbot .mainTextContainer{
+    width: 80%;
+    height: 90%;
+    top: -3vh;
+    position: relative;
+    font-size: calc(2vh + 0.32em);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.padzbot .mainTextContainer * {
+    line-height: 150%;
+}
+
+.padzbot .mainTextContainer .semibold {
+    font-weight: 600;
+    color: #0065C1;
+}
+
+.padzbot .mainTextContainer .redEmphasize {
+    color: #9D0009;
+}
+
+.padzbot .mainTextContainer .monoEmphasize{
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+    color: #0065C1;
+}
+
+/* Closer */
+
+.padzbot #padzbotCloser {
+    width: 100%;
+    background-color: #f8f8f8;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 99;
+}

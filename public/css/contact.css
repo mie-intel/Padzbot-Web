@@ -1,0 +1,91 @@
+#contact {
+    z-index: 2;
+}
+
+.contact {
+    background-color: #DFDFDF;
+    font-size: 1vw;
+}
+
+.contact .superContainer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-size: calc(1.2vh + 1.2em);
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact .superContainer * {
+    letter-spacing: 0.135em;
+}
+
+.contact .mainContainer{
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: -1.8em;
+}
+
+.contact .titleContainer{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    width: 100%;
+    height: max-content;
+    top: 0;
+    font-weight: 700;
+    font-size: 2.6em;
+}
+
+.contact .contactsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 7em;
+    font-size: 1.2em;
+    margin-top: 2.6em;
+}
+
+.contact .iconTextContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 2.5em;
+}
+
+.contact .icon{
+    width: 4.1em;
+    height: 100%;
+}
+
+.contact .icon img {
+    height: 100%;
+}
+
+.contact .text{
+    width: max-content;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.contact .contactFooter {
+    position: absolute;
+    bottom: 0.8em;
+    font-size: 0.65em;
+}

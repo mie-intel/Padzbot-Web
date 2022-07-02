@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,700;1,400;1,600;1,700&family=Montserrat:ital,wght@0,200;0,400;0,500;0,700;1,900&family=Righteous&family=Share+Tech&family=Source+Code+Pro:wght@600&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    line-height: 120%;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* HEADER */
+
+.navButton{
+    width: 4.5vw;
+    height: 4.5vw;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0.1875em rgba(0, 0, 0, 0.25), 0 0 1.1875em rgba(0, 0, 0, 0.45);
+    border-radius: 1em;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    top: calc(5vh + ((9vh - 4.5vw)/2));
+    left: 3.25%;
+    margin-left: 0.55em;
+}
+
+.navButton .buttonContainer{
+    width: 45%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navButton .buttonContainer div{
+    width: 100%;
+    height: 0.2em;
+    background-color: black;
+}
+
+.nav {
+    width: 40%;
+    min-width: 21em;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #F2F2F2;
+    border-right: 0.3125em solid #000000;
+    box-shadow: 0.25em 0 0.6875em rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-110%);
+    transition: transform 300ms;
+    transition-timing-function: ease;
+}
+
+.nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav .superContainer{
+    width: 82.5%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .upper{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav .title{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.nav .title p{
+    font-size: 2em;
+    position: relative;
+}
+
+.nav .spacer{
+    width: 95%;
+    height: 0.3125em;
+    position: relative;
+    background-color: black;
+}
+
+.nav .link{
+    font-family: 'Josefin Sans', sans-serif;
+    width: 85%;
+    height: 63%;
+    position: relative;
+}
+
+.nav .link div{
+    width: 100%;
+    margin-bottom: 2em;
+    height: max-content;
+    position: relative;
+}
+
+.nav .link .lastLink{
+    margin-bottom: 0;
+}
+
+.nav .link div a{
+    font-size: 2.25em;
+    color: black;
+    font-weight: 300;
+}
+
+.nav .link div a:hover{
+    font-weight: bold;
+}
+
+.nav .footer {
+    width: 100%;
+    height: 6.5%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    text-align: center;
+}
+
+.nav .footer p{
+    font-size: 1em;
+}
+
+.nav .bottomSpacer{
+    width: 100%;
+    height: 6%;
+    background-color: #3E3E3E;
+    border-right: black solid 0.1em;
+    box-sizing: content-box;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* SCROLL */
+
+.page {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.page.active {
+    visibility: visible;
+}
+
+.page:not(.active) * {
+    animation-play-state: paused;
+    display: none;
+}
+
+.pageWrapper {
+    position: relative;
+    width: 100%;
+    background-color: transparent;
+}

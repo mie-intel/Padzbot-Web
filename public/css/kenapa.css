@@ -1,0 +1,189 @@
+#kenapa {
+    z-index: 3;
+}
+
+.kenapa {
+    background-color: #f8f8f8;
+}
+.kenapa .firstSection {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.kenapa .title{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    width: 100%;
+    height: max-content;
+    text-align: center;
+    position: relative;
+}
+
+/* Second Section */
+.kenapa .secondSection {
+    width: 100%;
+    height: 100%;
+    padding: 8% 0;
+    box-sizing: border-box;
+    background-color: #0A0A0A;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1vw;
+}
+.kenapa .superContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: calc((0.9em + 0.8vh) * 1.4);
+    position: relative;
+}
+.kenapa .mainContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    height: 3.5em;
+    width: 85%;
+}
+
+.kenapa .mainContainer.middle{
+    margin: 5em 0;
+}
+
+.kenapa .iconHeadingContainer{
+    height: 4.5em;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* TRANSITION DECLARATION */
+.kenapa .mainContainer * {
+    transition: all 300ms;
+}
+
+/* ICON */
+.kenapa #KbrainImg {
+    z-index: 5;
+}
+
+.kenapa .icon {
+    --iconWidth: 4.5em;
+    height: var(--iconWidth);
+    width: var(--iconWidth);
+}
+
+.kenapa .icon img{
+    height: 100%;
+    transform: translateX(0);
+    top: 0;
+}
+
+/* IMG ANIMATION */
+.kenapa .icon .offset {
+    right: -50%;
+    transform: translateX(0) translateY(-50%);
+    width: 1em;
+    height: 1em;
+    top: 50%;
+}
+
+.kenapa .icon .main{
+    right: 50%;
+    transform: translateX(50%) translateY(-50%);
+    width: 12em;
+    height: 12em;
+    top: 50%;
+}
+
+.kenapa .icon .sideLeft, .kenapa .icon .sideCenter, .kenapa .icon .sideRight{
+    height: var(--iconWidth);
+    width: var(--iconWidth);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.kenapa .icon .sideRight {
+    right: 25%;
+    transform: translateX(100%) translateY(-50%);
+}
+
+.kenapa .icon .sideLeft {
+    right: 75%;
+}
+
+.kenapa .icon .sideCenter {
+    right: 50%;
+    transform: translateX(50%) translateY(-50%);
+}
+
+.kenapa .icon .fixed {
+    position: fixed;
+}
+
+.kenapa .icon .normalF {
+    transform: translateX(100%) translateY(-22%);
+}
+
+
+/* HEADING */
+
+.kenapa .heading{
+    margin-left: 2.1em;
+    left: -5em;
+    opacity: 0;
+    position: relative;
+}
+.kenapa .heading h1{
+    font-size: 2.4em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: #D1FFD6;
+}
+
+/* HEADING ANIMATION */
+.kenapa .iconHeadingContainer .HHidden {
+    visibility: hidden;
+}
+
+.kenapa .iconHeadingContainer .HCome {
+    visibility: visible;
+    left: 0;
+    opacity: 1;
+}
+
+/* TEXT */
+
+.kenapa .text{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    color: white;
+    width: calc(100% - 4.5em - 2.1em);
+    top: -1em;
+    opacity: 0;
+}
+.kenapa .text p{
+    font-size: 0.8em;
+}
+
+
+/* TEXT ANIMATION */
+.kenapa .mainContainer .THidden {
+    visibility: hidden;
+}
+
+.kenapa .mainContainer .TCome {
+    visibility: visible;
+    top: 0;
+    opacity: 1;
+}

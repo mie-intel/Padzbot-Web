@@ -1,0 +1,309 @@
+#robotik{
+    z-index: 5;
+}
+
+.robotik {
+    background-color: black;
+}
+
+.robotik .firstSection{
+    width: 100%;
+    height: 90%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+}
+
+.robotik .titleContainer{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.robotik .arrowImage{
+    position: absolute;
+    height: 100%;
+    width: 87%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@keyframes arrowMove {
+    from {
+        top: -5em;
+    }
+    to {
+        top: 5em;
+    }
+}
+
+.robotik .arrowImage img{
+    position: relative;
+    height: 50%;
+    max-height: 50vw;
+    animation-name: arrowMove;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.robotik .textTitle{
+    position: relative;
+    width: 65%;
+    height: 29.5vw;
+    font-size: 8.75vw;
+}
+
+.robotik .textTitle *{
+    position: absolute;
+}
+
+.robotik .topTitle{
+    top: 0;
+    left: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+}
+
+.robotik .bottomTitle{
+    bottom: 0;
+    right: 0;
+    font-family: 'Share Tech', sans-serif;
+    font-weight: 400;
+}
+
+/* Second section */
+
+.robotik .secondSection{
+    width: 100%;
+    height: 100%;
+    padding-top: 10%;
+    box-sizing: content-box;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.robotik .secondContainer{
+    height: 88%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.robotik .LFImage {
+    padding-right: 3%;
+    padding-left: 3%;
+    width: 40%;
+    height: 100%;
+    max-width: max-content;
+    max-height: 90vw;
+    box-sizing: content-box;
+    position: relative;
+}
+
+.robotik .LFImage #LFLine{
+    height: 100%;
+}
+
+.robotik .LFImage #LFBot{
+    height: 8%;
+    width: 10%;
+    border-radius: 0.15em;
+    background-color: #A4A4A4;
+}
+
+.robotik .cmdContainer {
+    height: 100%;
+    width: 60%;
+    max-height: 100vw;
+    box-sizing: content-box;
+    padding-right: 3%;
+}
+
+.robotik .cmd {
+    font-size: 1.3vw;
+    --borderRadius: 0.125em;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--borderRadius);
+    box-shadow: 0 0 0.625em rgba(255,255,255,0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.robotik .cmdUpper{
+    background-color: white;
+    border-radius: var(--borderRadius) var(--borderRadius) 0 0;
+    width: 100%;
+    height: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.robotik .leftCmdUpper{
+    position: relative;
+    left: 0.6em;
+    width: max-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.robotik .leftCmdUpper img {
+    height: 40%;
+}
+
+.robotik .rightCmdUpper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: max-content;
+    height: 100%;
+    position: relative;
+}
+
+.robotik .tabLogoContainer{
+    width: 1.6em;
+    height: 100%;
+    position: relative;
+}
+
+.robotik .tabLogoBackground{
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 200ms;
+}
+
+.robotik .tabLogoBackground:hover{
+    background-color: #d6d6d6;
+}
+
+.robotik .tabLogoBackground img{
+    width: 27.5%;
+}
+
+.robotik .minimize div {
+    width: 27.5%;
+    height: 0.01em;
+    background-color: rgba(17, 17, 17, 0.712);
+}
+
+.robotik .close{
+    filter: none();
+    border-radius: 0 var(--borderRadius) 0 0;
+}
+
+.robotik .close:hover {
+    background-color: #3BD4E3;
+    filter: invert();
+}
+
+.robotik .cmdMain{
+    height: calc(100% - 1.5em);
+    width: 100%;
+    font-family: 'Ubuntu Mono', monospace;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.robotik .textContainer{
+    height: 92.5%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: calc((1vh + 1em) * 0.65);
+}
+
+.robotik .upperText{
+    width: 100%;
+    height: 4%;
+    color: #c0c0c0;
+}
+
+.robotik .mainText{
+    margin-top: 3.25em;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75.5%;
+    width: 100%;
+}
+
+.robotik .mainTextSuperContainer{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+}
+
+.robotik .mainText_Container{
+    width: 100%;
+    height: max-content;
+}
+
+.robotik .mainText_Subheading{
+    color: #DBDBDB;
+    opacity: 55%;
+}
+
+.robotik .mainText_Text{
+    font-size: 1.7em;
+    font-weight: 400;
+}
+
+.robotik .mainText_Text b{
+    font-weight: 700;
+}
+
+.robotik .cmdScrollbar{
+    box-sizing: border-box;
+    width: 1em;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    background-color: #F0F0F0;
+    padding: 1em 0;
+}
+
+.robotik .cmdScrollbar div{
+    position: relative;
+    margin: 0 auto;
+    width: 40%;
+    height: 1em;
+    background-color: #858585;
+    border-radius: 0;
+    transition: border-radius, width 300ms;
+}
+
+.robotik .cmdScrollbar div:hover {
+    border-radius: 0.1em;
+    width: 50%;
+}

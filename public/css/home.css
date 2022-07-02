@@ -1,0 +1,146 @@
+#home {
+    z-index: 6;
+}
+
+.home {
+    background-color: #f8f8f8;
+}
+
+.home .gearBackground{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 94%;
+    font-size: 0.835vw;
+}
+
+@keyframes rotateGear {
+    from {
+        transform: rotateZ(0deg);
+    } to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes delayedRotation {
+    from {
+        transform: rotateZ(0deg);
+    } to {
+        transform: rotateZ(45deg);
+    }
+}
+
+.home .gear{
+    width: 50%;
+    position: absolute;
+    opacity: 34%;
+    animation-name: rotateGear, delayedRotation;
+    animation-timing-function: linear, linear;
+    animation-iteration-count: infinite, 1;
+    animation-duration: 4s, 2s;
+    animation-delay:2s, 0;
+}
+
+.home .gear01{
+    top: -4.5em;
+    right: -15em;
+    transform: rotateZ(0deg);
+    width: 39em;
+    animation-direction: normal;
+}
+
+.home .gear02{
+    bottom: -9.6em;
+    left: -21.85em;
+    transform: rotateZ(0deg);
+    width: 39.55em;
+    animation-direction: normal;
+}
+
+.home .gear03{
+    bottom: -25.7em;
+    right: 25.6em;
+    transform: rotateZ(0deg);
+    width: 40em;
+    animation-direction: reverse;
+}
+
+.home .gear04{
+    bottom: -16em;
+    left: 31.5em;
+    transform: rotateZ(0deg);
+    width: 26.3em;
+    animation-direction: normal;
+}
+
+.home .gear05{
+    top: -14.2em;
+    left: -1em;
+    transform: rotateZ(0deg);
+    width: 26.3em;
+    animation-direction: reverse;
+}
+
+.home .gear06{
+    bottom: -11.5em;
+    right: -5.5em;
+    transform: rotateZ(0deg);
+    width: 26.3em;
+    animation-direction: normal;
+}
+
+.home .gear07{
+    top: -10em;
+    left: 22.7em;
+    transform: rotateZ(0deg);
+    width: 30.5em;
+    animation-direction: normal;
+}
+
+
+.home .title {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vw;
+}
+
+.home .title h1{
+    font-family: 'Righteous', cursive;
+    font-size: 4.3em;
+    position: absolute;
+}
+
+.home .title h1 span{
+    position: relative;
+    visibility: hidden;
+}
+
+.home .title #mainGear{
+    width: 3.2em;
+    right: 9.35em;
+    position: absolute;
+    animation-name: rotateGear, delayedRotation;
+    animation-timing-function: linear, linear;
+    animation-iteration-count: infinite, 1;
+    animation-duration: 1500ms, 1s;
+    animation-delay: 1s, 0s;
+}
+
+.home .title #closer {
+    background-color: #f8f8f8;
+    position: absolute;
+    border-radius: 50%;
+    aspect-ratio: 82.167 / 81.117;
+}
+
+.home .bottomSpacer {
+    background-color: #3E3E3E;
+    width: 100%;
+    height: 6%;
+    bottom: 0;
+    position: absolute;
+}
