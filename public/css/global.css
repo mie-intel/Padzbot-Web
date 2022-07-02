@@ -21,8 +21,8 @@ html, body {
 /* HEADER */
 
 .navButton{
-    width: 4.5vw;
-    height: 4.5vw;
+    width: 3em;
+    height: 3em;
     box-sizing: border-box;
     background-color: #FFFFFF;
     box-shadow: 0 0 0.1875em rgba(0, 0, 0, 0.25), 0 0 1.1875em rgba(0, 0, 0, 0.45);
@@ -32,7 +32,7 @@ html, body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    top: calc(5vh + ((9vh - 4.5vw)/2));
+    top: calc(5vh + ((9vh - 3em)/2));
     left: 3.25%;
     margin-left: 0.55em;
 }

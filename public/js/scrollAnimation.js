@@ -325,7 +325,7 @@ function kenapaAnimation(kenapaPageW) {
         }
     }
 
-    if (percent <= 0.96) {
+    if (percent <= 0.95) {
         kenapaPageW.style.opacity = 1;
     } else  if (percent >= 1) {
         kenapaPageW.style.opacity = 0;
