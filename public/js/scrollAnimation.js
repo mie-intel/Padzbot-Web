@@ -20,7 +20,7 @@ const XContainer = document.getElementById("theXContainer");
 const timgContainer = document.getElementById("timgContainer");
 const timgHeight = getComputedStyle(timgContainer).height;
 
-const PADZBOTstartPosition = {mTop: 0, height: parseInt(timgHeight), width:  (wh + ww) * 0.1, top: undefined, rttl: 0, rttr: 0, tttr: 1};
+const PADZBOTstartPosition = {mTop: 0, height: parseInt(timgHeight), width:  (wh + ww) * 0.1, top: undefined, rttl: 0, rttr: 0, tttr: 0};
 const PADZBOTendPosition = {mTop: wh * 1.2, height: wh, top: (0.5 * wh) - (PADZBOTstartPosition.height / 2), width: ww, rttl: -64.65, rttr: 51.73, tttr: 17};
 
 XContainer.style.width = PADZBOTstartPosition.width + "px";
