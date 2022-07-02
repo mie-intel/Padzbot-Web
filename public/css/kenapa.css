@@ -42,7 +42,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: calc((0.9em + 0.8vh) * 1.4);
+    font-size: calc((0.85em + 0.75vh) * 1.35);
     position: relative;
 }
 .kenapa .mainContainer{

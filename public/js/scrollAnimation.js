@@ -4,8 +4,8 @@ const closer = document.getElementById("closer");
 const bottomSpacer = document.getElementById("bottomSpacer");
 var parsedGearWidth = parseInt(width);
 var parsedGearRight = parseInt(right);
-const HOMEstartPosition = {width: parsedGearWidth, right: parsedGearRight}
-const HOMEendPosition = {width: ww * 3, right: -(ww/1)};
+var HOMEstartPosition = {width: parsedGearWidth, right: parsedGearRight}
+var HOMEendPosition = {width: ww * 3, right: -(ww/1)};
 
 const LFPath = document.getElementById("LFPath");
 const LFBot = document.getElementById("LFBot");
@@ -18,10 +18,10 @@ const Xttr = document.getElementById("XtoRight");
 const Xttl = document.getElementById("XtoLeft");
 const XContainer = document.getElementById("theXContainer");
 const timgContainer = document.getElementById("timgContainer");
-const timgHeight = getComputedStyle(timgContainer).height;
+var timgHeight = getComputedStyle(timgContainer).height;
 
-const PADZBOTstartPosition = {mTop: 0, height: parseInt(timgHeight), width:  (wh + ww) * 0.1, top: undefined, rttl: 0, rttr: 0, tttr: 3};
-const PADZBOTendPosition = {mTop: wh * 1.2, height: wh, top: (0.5 * wh) - (PADZBOTstartPosition.height / 2), width: ww, rttl: -64.65, rttr: 51.73, tttr: 17};
+var PADZBOTstartPosition = {mTop: 0, height: parseInt(timgHeight), width:  (wh + ww) * 0.1, top: undefined, rttl: 0, rttr: 0, tttr: 3};
+var PADZBOTendPosition = {mTop: wh * 1.2, height: wh, top: (0.5 * wh) - (PADZBOTstartPosition.height / 2), width: ww, rttl: -64.65, rttr: 51.73, tttr: 17};
 
 XContainer.style.width = PADZBOTstartPosition.width + "px";
 XContainer.style.height = PADZBOTstartPosition.height + "px";
@@ -29,8 +29,9 @@ XContainer.style.height = PADZBOTstartPosition.height + "px";
 const padzbotCloser = document.getElementById("padzbotCloser");
 const timgS = document.getElementsByClassName("timgS")
 
-const KENAPAstartPosition = {kTop: -wh * 0.8, ktF: 0};
-const KENAPAendPosition = {kTop: 0, ktF: 0.12 * ww};
+
+var KENAPAstartPosition = {kTop: -wh * 0.8, ktF: 0};
+var KENAPAendPosition = {kTop: 0, ktF: 0.12 * ww};
 const kenapaTitle = document.getElementById("kenapaTitle");
 const kenapaSS = document.getElementById("kenapaSS");
 const KImg = document.getElementsByClassName("KImg");
