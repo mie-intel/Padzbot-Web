@@ -342,7 +342,7 @@ function kenapaAnimation(kenapaPageW) {
         }
     }
 
-    if (percent <= 0.85) {
+    if (percent <= 0.87) {
         for (let l = 0; l < KText.length; l++) {
             const _text = KText[l];
             _text.classList.add("THidden");
@@ -390,7 +390,7 @@ function contactAnimation(contactPageW) {
     const {top, height} = contactPageW.getBoundingClientRect();
     var percent = ((top * -1) / (height));
 
-    if (percent <= 0.15) {
+    if (percent <= 0) {
         contactSC.classList.add("CSCHidden")
     } else {
         contactSC.classList.remove("CSCHidden")
