@@ -97,7 +97,7 @@ function robotikAnimation(robotikPageW) {
         }
     }
 
-    if (percent <= -0.05) {
+    if (percent <= -0.2) {
         robotikTitle.classList.add("RTHidden");
     } else {
         robotikTitle.classList.remove("RTHidden");
@@ -342,7 +342,7 @@ function kenapaAnimation(kenapaPageW) {
         }
     }
 
-    if (percent <= 0.87) {
+    if (percent <= 0.85) {
         for (let l = 0; l < KText.length; l++) {
             const _text = KText[l];
             _text.classList.add("THidden");
@@ -357,7 +357,7 @@ function kenapaAnimation(kenapaPageW) {
     }
 
     
-    if (percent <= 0.9) {
+    if (percent <= 0.95) {
         kenapaPageW.style.opacity = 1;
         kenapaSC.style.top = "";
         for (let l = 0; l < KImg.length; l++) {
@@ -374,13 +374,13 @@ function kenapaAnimation(kenapaPageW) {
             }
         }
     } else {
-        kenapaPageW.style.opacity = ((((percent - 0.9) / (1 - 0.9)) * -1)) + 1; 
-        kenapaSC.style.top = (-((((percent - 0.9) / (1 - 0.9)) * (KENAPAendPosition.endTop - KENAPAstartPosition.endTop)) + KENAPAstartPosition.endTop)) + "px"; 
+        kenapaPageW.style.opacity = ((((percent - 0.95) / (1 - 0.95)) * -1)) + 1; 
+        kenapaSC.style.top = (-((((percent - 0.95) / (1 - 0.95)) * (KENAPAendPosition.endTop - KENAPAstartPosition.endTop)) + KENAPAstartPosition.endTop)) + "px"; 
         for (let l = 0; l < KImg.length; l++) {
             const element = KImg[l];
             element.style.transition = "none";
             if (KMCPos[l].top <= wh) {
-                element.style.top = (KMCPos[l].top - (((((percent - 0.9) / (1 - 0.9)) * (KENAPAendPosition.endTop - KENAPAstartPosition.endTop)) + KENAPAstartPosition.endTop))) + "px";
+                element.style.top = (KMCPos[l].top - (((((percent - 0.95) / (1 - 0.95)) * (KENAPAendPosition.endTop - KENAPAstartPosition.endTop)) + KENAPAstartPosition.endTop))) + "px";
             }
         }
     }
@@ -390,7 +390,7 @@ function contactAnimation(contactPageW) {
     const {top, height} = contactPageW.getBoundingClientRect();
     var percent = ((top * -1) / (height));
 
-    if (percent <= 0.2) {
+    if (percent <= 0.15) {
         contactSC.classList.add("CSCHidden")
     } else {
         contactSC.classList.remove("CSCHidden")
