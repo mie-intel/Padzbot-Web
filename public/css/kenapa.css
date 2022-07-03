@@ -181,10 +181,11 @@
 /* TEXT ANIMATION */
 .kenapa .mainContainer .THidden {
     visibility: hidden;
+    top: -1em;
 }
 
 .kenapa .mainContainer .TCome {
     visibility: visible;
-    top: 0;
+    top: 1em;
     opacity: 1;
 }
