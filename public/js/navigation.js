@@ -2,7 +2,10 @@ const nav = document.getElementById("nav");
 const navButton = document.getElementById("navButton");
 
 function onclickHandler(id) {
+    const { style, dataset } = nav;
     document.getElementsByClassName(id)[0].classList.add("active");
+    dataset.state = "closed";
+    style.transform = "translateX(-110%)";
 }
 
 navButton.addEventListener("click", ()=>{
