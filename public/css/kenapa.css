@@ -172,6 +172,9 @@
     width: calc(100% - 4.5em - 2.1em);
     bottom: 1em;
     opacity: 0;
+    display: flex;
+    align-items: bottom;
+    justify-content: flex-start;
 }
 .kenapa .text p{
     font-size: 0.8em;
@@ -185,6 +188,6 @@
 
 .kenapa .mainContainer .TCome {
     visibility: visible;
-    bottom: 0;
+    bottom: -1em;
     opacity: 1;
 }
