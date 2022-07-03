@@ -58,6 +58,15 @@
     width: 65%;
     height: 29.5vw;
     font-size: 8.75vw;
+    transition-property: opacity top;
+    transition-duration: 300ms;
+    top: 0;
+    opacity: 1;
+}
+
+.robotik .textTitle.RTHidden {
+    opacity: 0;
+    top: -0.2em;
 }
 
 .robotik .textTitle *{
@@ -138,6 +147,7 @@
     border-radius: var(--borderRadius);
     box-shadow: 0 0 0.625em rgba(255,255,255,0.25);
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;

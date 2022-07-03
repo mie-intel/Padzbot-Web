@@ -2,7 +2,7 @@ var ww = window.innerWidth;
 var wh = window.innerHeight;
 const pageWrapper = document.getElementsByClassName("pageWrapper");
 const pages = document.getElementsByClassName("page");
-const additional = [500, 500, wh, wh * 5, 0];
+const additional = [600, 1000, wh, wh * 5, 1000];
 const scrollKey = "QWGDFefvbnBHJnyjBbbh";
 var kenapaNeedMin = true;
 

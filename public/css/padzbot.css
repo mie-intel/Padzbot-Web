@@ -38,6 +38,15 @@
     margin-bottom: 10em;
     position: relative;
     z-index: -1;
+    top: 0;
+    opacity: 1;
+    transition-property: opacity top;
+    transition-duration: 300ms;
+}
+
+.padzbot .titleText.PTHidden {
+    top: -0.5em;
+    opacity: 0;
 }
 
 .padzbot .titleText h1{

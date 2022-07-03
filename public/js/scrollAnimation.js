@@ -7,32 +7,32 @@ var parsedGearRight = parseInt(right);
 var HOMEstartPosition = {width: parsedGearWidth, right: parsedGearRight}
 var HOMEendPosition = {width: ww * 3, right: -(ww/1)};
 
+const robotikTitle = document.getElementById("robotikTitle");
 const LFPath = document.getElementById("LFPath");
 const LFBot = document.getElementById("LFBot");
 var counter = 0;
 var LFPathDistance = LFPath.getTotalLength()
 var interval = LFPathDistance / 200;
 var pointBefore = {x: 0, y: 0};
+var robotikTopPositionS = 0.05 * wh;
 
 const Xttr = document.getElementById("XtoRight");
 const Xttl = document.getElementById("XtoLeft");
 const XContainer = document.getElementById("theXContainer");
 const timgContainer = document.getElementById("timgContainer");
 var timgHeight = getComputedStyle(timgContainer).height;
-
 var PADZBOTstartPosition = {mTop: 0, height: parseInt(timgHeight), width:  (wh + ww) * 0.1, top: undefined, rttl: 0, rttr: 0, tttr: 3};
 var PADZBOTendPosition = {mTop: wh * 1.2, height: wh, top: (0.5 * wh) - (PADZBOTstartPosition.height / 2), width: ww, rttl: -64.65, rttr: 51.73, tttr: 17};
-
 XContainer.style.width = PADZBOTstartPosition.width + "px";
 XContainer.style.height = PADZBOTstartPosition.height + "px";
-
 const padzbotCloser = document.getElementById("padzbotCloser");
 const timgS = document.getElementsByClassName("timgS")
+const padzbotTitle = document.getElementById("padzbotTitle");
 
-
-var KENAPAstartPosition = {kTop: -wh * 0.8, ktF: 0};
-var KENAPAendPosition = {kTop: 0, ktF: 0.12 * ww};
+var KENAPAstartPosition = {kTop: -wh * 0.8, ktF: 0, endTop: 0};
+var KENAPAendPosition = {kTop: 0, ktF: 0.12 * ww, endTop: wh * 0.04};
 const kenapaTitle = document.getElementById("kenapaTitle");
+const kenapaSC = document.getElementById("kenapaSC");
 const kenapaSS = document.getElementById("kenapaSS");
 const KImg = document.getElementsByClassName("KImg");
 const [moneyImg, brainImg, smileyImg] = KImg;
@@ -42,9 +42,11 @@ const Kheading = document.getElementsByClassName("KHeading");
 const KText = document.getElementsByClassName("KText");
 const sideArr = ["sideLeft", "sideCenter", "sideRight"];
 
+const contactSC = document.getElementById("contactSC");
+
 function homeAnimation(homePageW) {
     const {top, height} = homePageW.getBoundingClientRect();
-    var percent = ((top * -1) / (height * 0.8));
+    var percent = ((top * -1) / (height * 0.5));
 
     if (percent <= 0) {
         gear.style.width = width;
@@ -81,17 +83,32 @@ function robotikAnimation(robotikPageW) {
     } else if (percent >= 0) {
         robotikPageW.style.opacity = 1;
     } else {
-        robotikPageW.style.opacity = 1 - (percent / -0.3); 
+        robotikPageW.style.opacity = (percent - -0.3) / (0 - -0.3);
     }
 
+
     if (percent > 0) {
-        if (percent <= 0.65) {
+        if (percent <= 0.6) {
             robotikPageW.style.opacity = 1;
-        } else if (percent >= 1) {
+        } else if (percent >= 0.75) {
             robotikPageW.style.opacity = 0;
         } else {
-            robotikPageW.style.opacity = ((((percent - 0.65) / (1 - 0.65)) * -1)) + 1; 
+            robotikPageW.style.opacity = ((((percent - 0.6) / (0.75 - 0.6)) * -1)) + 1; 
         }
+    }
+
+    if (percent <= -0.05) {
+        robotikTitle.classList.add("RTHidden");
+    } else {
+        robotikTitle.classList.remove("RTHidden");
+    }
+
+    if (percent <= 0.45) {
+        robotikSS.style.top = "";
+    } else if (percent >= 0.75) {
+        robotikSS.style.top = robotikTopPositionS + "px";
+    } else {
+        robotikSS.style.top = (- (((percent - 0.45) / (0.75 - 0.45)) * (robotikTopPositionS))) + "px"; 
     }
 
     const point = LFPath.getPointAtLength(counter);
@@ -114,6 +131,20 @@ function robotikAnimation(robotikPageW) {
 function padzbotAnimation(padzbotPageW) {
     const {top, height} = padzbotPageW.getBoundingClientRect();
     var percent = ((top * -1) / (height));
+
+    if (percent <= -0.3) {
+        padzbotPageW.style.opacity = 0;
+    } else if (percent >= -0.18) {
+        padzbotPageW.style.opacity = 1;
+    } else {
+        padzbotPageW.style.opacity = (percent - -0.3) / (-0.18 - -0.3); 
+    }
+
+    if (percent <= -0.18) {
+        padzbotTitle.classList.add("PTHidden");
+    } else {
+        padzbotTitle.classList.remove("PTHidden");
+    }
 
     if (percent <= 0.1) {
         for (let l = 0; l < timgS.length; l++) {
@@ -163,24 +194,24 @@ function padzbotAnimation(padzbotPageW) {
         XContainer.style.transform = `translateX(${-33 - (((percent - 0.6) / (0.7 - 0.6)) * (50 - 33))}%)`; 
     }
 
-    if (percent <= 0.75) {
+    if (percent <= 0.72) {
         XContainer.style.width = PADZBOTstartPosition.width + "px";
         Xttr.style.marginTop = PADZBOTstartPosition.tttr + "px";
-    } else if (percent >= 0.85 ) {
+    } else if (percent >= 0.78 ) {
         XContainer.style.width = PADZBOTendPosition.width + "px";
         Xttr.style.marginTop = PADZBOTendPosition.tttr + "px";
     } else {
-        XContainer.style.width = ((((percent - 0.75) / (0.85 - 0.75)) * (PADZBOTendPosition.width - PADZBOTstartPosition.width)) + PADZBOTstartPosition.width) + "px"; 
-        Xttr.style.marginTop = ((((percent - 0.75) / (0.85 - 0.75)) * (PADZBOTendPosition.tttr - PADZBOTstartPosition.tttr)) + PADZBOTstartPosition.tttr) + "px"; 
+        XContainer.style.width = ((((percent - 0.72) / (0.78 - 0.72)) * (PADZBOTendPosition.width - PADZBOTstartPosition.width)) + PADZBOTstartPosition.width) + "px"; 
+        Xttr.style.marginTop = ((((percent - 0.72) / (0.78 - 0.72)) * (PADZBOTendPosition.tttr - PADZBOTstartPosition.tttr)) + PADZBOTstartPosition.tttr) + "px"; 
     }
 
-    if (percent <= 0.86) {
+    if (percent <= 0.8) {
         Xttr.style.position = "";
         Xttl.style.position = "";
         Xttr.style.marginBottom = "";
         Xttl.style.marginBottom = "";
         padzbotCloser.style.height = 0;
-    } else if (percent >= 0.99) {
+    } else if (percent >= 0.97) {
         Xttr.style.position = "fixed";
         Xttl.style.position = "fixed";
         Xttr.style.marginBottom = (-PADZBOTendPosition.mTop) + "px";
@@ -189,9 +220,9 @@ function padzbotAnimation(padzbotPageW) {
     } else {
         Xttr.style.position = "fixed";
         Xttl.style.position = "fixed";
-        Xttr.style.marginBottom = (-((((percent - 0.86) / (0.99 - 0.86)) * (PADZBOTendPosition.mTop - PADZBOTstartPosition.mTop)) + PADZBOTstartPosition.mTop)) + "px"; 
-        Xttl.style.marginBottom = (((((percent - 0.86) / (0.99 - 0.86)) * (PADZBOTendPosition.mTop - PADZBOTstartPosition.mTop)) + PADZBOTstartPosition.mTop)) + "px"; 
-        padzbotCloser.style.height = (((percent - 0.86) / (0.99 - 0.86)) * wh * 1.2) + "px"; 
+        Xttr.style.marginBottom = (-((((percent - 0.8) / (0.97 - 0.8)) * (PADZBOTendPosition.mTop - PADZBOTstartPosition.mTop)) + PADZBOTstartPosition.mTop)) + "px"; 
+        Xttl.style.marginBottom = (((((percent - 0.8) / (0.97 - 0.8)) * (PADZBOTendPosition.mTop - PADZBOTstartPosition.mTop)) + PADZBOTstartPosition.mTop)) + "px"; 
+        padzbotCloser.style.height = (((percent - 0.8) / (0.97 - 0.8)) * wh * 1.2) + "px"; 
     }
 
 }
@@ -200,13 +231,13 @@ function kenapaAnimation(kenapaPageW) {
     const {top, height} = kenapaPageW.getBoundingClientRect();
     var percent = ((top * -1) / (height));
 
-    if (percent <= 0.5) {
+    if (percent <= 0.4) {
         kenapaNeedMin = true;
     } else {
         kenapaNeedMin = false;
     }
 
-    if (percent <= 0) {
+    if (percent <= 0.05) {
         kenapaTitle.style.top = (KENAPAstartPosition.kTop) + "px";
         kenapaTitle.style.fontSize = (KENAPAstartPosition.ktF) + "px";
         kenapaTitle.style.position = "";
@@ -215,31 +246,31 @@ function kenapaAnimation(kenapaPageW) {
         kenapaTitle.style.fontSize = (KENAPAendPosition.ktF) + "px";
         kenapaTitle.style.position = "fixed";
     } else {
-        kenapaTitle.style.top = ((percent / 0.3 * (KENAPAendPosition.kTop - KENAPAstartPosition.kTop)) + KENAPAstartPosition.kTop) + "px"; 
-        kenapaTitle.style.fontSize = ((percent / 0.3 * (KENAPAendPosition.ktF - KENAPAstartPosition.ktF)) + KENAPAstartPosition.ktF) + "px"; 
+        kenapaTitle.style.top = (((percent - 0.1) / (0.3 - 0.1) * (KENAPAendPosition.kTop - KENAPAstartPosition.kTop)) + KENAPAstartPosition.kTop) + "px"; 
+        kenapaTitle.style.fontSize = (((percent - 0.1) / (0.3 - 0.1) * (KENAPAendPosition.ktF - KENAPAstartPosition.ktF)) + KENAPAstartPosition.ktF) + "px"; 
         kenapaTitle.style.position = "";
     }
 
-    if (percent <= 0.32) {
+    if (percent <= 0.35) {
         kenapaTitle.style.opacity = 1;
-    } else if (percent >= 0.5){
+    } else if (percent >= 0.43){
         kenapaTitle.style.opacity = 0;
     } else {
-        kenapaTitle.style.opacity = ((((percent - 0.32) / (0.5 - 0.32)) * -1)) + 1; 
+        kenapaTitle.style.opacity = ((((percent - 0.35) / (0.43 - 0.35)) * -1)) + 1; 
     }
 
-    if (percent <= 0.55) {
+    if (percent <= 0.4) {
         kenapaSS.style.opacity = 0;
-    } else if (percent >= 0.6){
+    } else if (percent >= 0.48){
         kenapaSS.style.opacity = 1;
     } else {
-        kenapaSS.style.opacity = ((((percent - 0.55) / (0.6 - 0.55)) * 1)); 
+        kenapaSS.style.opacity = ((((percent - 0.4) / (0.48 - 0.4)) * 1)); 
     }
 
-    if (percent <= 0.63) {
+    if (percent <= 0.5) {
         moneyImg.classList.add("offset");
         moneyImg.classList.remove("main", "sideLeft");
-    } else if (percent >= 0.68) {
+    } else if (percent >= 0.63) {
         moneyImg.classList.add("sideLeft");
         moneyImg.classList.remove("main", "offset");
     } else {
@@ -247,10 +278,10 @@ function kenapaAnimation(kenapaPageW) {
         moneyImg.classList.remove("offset", "sideLeft");
     }
 
-    if (percent <= 0.7) {
+    if (percent <= 0.65) {
         smileyImg.classList.add("offset");
         smileyImg.classList.remove("main", "sideRight");
-    } else if (percent >= 0.77) {
+    } else if (percent >= 0.72) {
         smileyImg.classList.add("sideRight");
         smileyImg.classList.remove("main", "offset");
     } else {
@@ -258,10 +289,10 @@ function kenapaAnimation(kenapaPageW) {
         smileyImg.classList.remove("offset", "sideRight");
     }
 
-    if (percent <= 0.79) {
+    if (percent <= 0.74) {
         brainImg.classList.add("offset");
         brainImg.classList.remove("main", "sideCenter");
-    } else if (percent >= 0.86) {
+    } else if (percent >= 0.81) {
         brainImg.classList.add("sideCenter");
         brainImg.classList.remove("main", "offset");
     } else {
@@ -269,8 +300,7 @@ function kenapaAnimation(kenapaPageW) {
         brainImg.classList.remove("offset", "sideCenter");
     }
 
-
-    if (percent <= 0.88) {
+    if (percent <= 0.84) {
         for (let l = 0; l < KImg.length; l++) {
             const element = KImg[l];
             element.style.top = "";
@@ -298,7 +328,7 @@ function kenapaAnimation(kenapaPageW) {
         }
     }
 
-    if (percent <= 0.9) {
+    if (percent <= 0.85) {
         for (let l = 0; l < Kheading.length; l++) {
             const _heading = Kheading[l];
             _heading.classList.add("HHidden");
@@ -312,7 +342,7 @@ function kenapaAnimation(kenapaPageW) {
         }
     }
 
-    if (percent <= 0.92) {
+    if (percent <= 0.87) {
         for (let l = 0; l < KText.length; l++) {
             const _text = KText[l];
             _text.classList.add("THidden");
@@ -326,12 +356,44 @@ function kenapaAnimation(kenapaPageW) {
         }
     }
 
-    if (percent <= 0.95) {
+    
+    if (percent <= 0.9) {
         kenapaPageW.style.opacity = 1;
+        kenapaSC.style.top = "";
+        for (let l = 0; l < KImg.length; l++) {
+            KImg[l].style.transition = "";
+        }
     } else  if (percent >= 1) {
         kenapaPageW.style.opacity = 0;
+        kenapaSC.style.top = KENAPAendPosition.endTop + "px";
+        for (let l = 0; l < KImg.length; l++) {
+            const element = KImg[l];
+            element.style.transition = "none";
+            if (KMCPos[l].top <= wh) {
+                element.style.top = (KMCPos[l].top - KENAPAendPosition.kTop) + "px";
+            }
+        }
     } else {
-        kenapaPageW.style.opacity = ((((percent - 0.96) / (1 - 0.96)) * -1)) + 1; 
+        kenapaPageW.style.opacity = ((((percent - 0.9) / (1 - 0.9)) * -1)) + 1; 
+        kenapaSC.style.top = (-((((percent - 0.9) / (1 - 0.9)) * (KENAPAendPosition.endTop - KENAPAstartPosition.endTop)) + KENAPAstartPosition.endTop)) + "px"; 
+        for (let l = 0; l < KImg.length; l++) {
+            const element = KImg[l];
+            element.style.transition = "none";
+            if (KMCPos[l].top <= wh) {
+                element.style.top = (KMCPos[l].top - (((((percent - 0.9) / (1 - 0.9)) * (KENAPAendPosition.endTop - KENAPAstartPosition.endTop)) + KENAPAstartPosition.endTop))) + "px";
+            }
+        }
+    }
+}
+
+function contactAnimation(contactPageW) {
+    const {top, height} = contactPageW.getBoundingClientRect();
+    var percent = ((top * -1) / (height));
+
+    if (percent <= 0.2) {
+        contactSC.classList.add("CSCHidden")
+    } else {
+        contactSC.classList.remove("CSCHidden")
     }
 }
 
@@ -347,6 +409,9 @@ function animate() {
     }
     if (pages[3].classList.contains("active")) {
         kenapaAnimation(pageWrapper[3]);
+    }
+    if (pages[4].classList.contains("active")) {
+        contactAnimation(pageWrapper[4]);
     }
     requestAnimationFrame(animate);
 }

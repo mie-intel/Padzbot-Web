@@ -17,6 +17,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition-property: top opacity;
+    transition-duration: 300ms;
+    top: 0;
+    opacity: 1;
+}
+
+.contact .superContainer.CSCHidden {
+    opacity: 0;
+    top: -0.5em;
 }
 
 .contact .superContainer * {
@@ -85,7 +94,16 @@
 }
 
 .contact .contactFooter {
-    position: absolute;
+    transition-property: bottom;
+    transition-duration: 300ms;
+    transition-delay: 300ms;
+    position: fixed;
     bottom: 0.8em;
     font-size: 0.65em;
+    opacity: 1;
+}
+
+.contact .CSCHidden .contactFooter {
+    bottom: -2em;
+    opacity: 0;
 }
