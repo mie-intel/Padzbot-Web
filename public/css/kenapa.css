@@ -170,7 +170,7 @@
     font-weight: 300;
     color: white;
     width: calc(100% - 4.5em - 2.1em);
-    top: -1em;
+    bottom: 1em;
     opacity: 0;
 }
 .kenapa .text p{
@@ -181,11 +181,10 @@
 /* TEXT ANIMATION */
 .kenapa .mainContainer .THidden {
     visibility: hidden;
-    top: -1em;
 }
 
 .kenapa .mainContainer .TCome {
     visibility: visible;
-    top: 1em;
+    bottom: 0;
     opacity: 1;
 }
