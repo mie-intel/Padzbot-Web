@@ -21,8 +21,8 @@ const Xttl = document.getElementById("XtoLeft");
 const XContainer = document.getElementById("theXContainer");
 const timgContainer = document.getElementById("timgContainer");
 var timgHeight = getComputedStyle(timgContainer).height;
-var PADZBOTstartPosition = {mTop: 0, height: parseInt(timgHeight), width:  (wh + ww) * 0.1, top: undefined, rttl: 0, rttr: 0, tttr: 3};
-var PADZBOTendPosition = {mTop: wh * 1.2, height: wh, top: (0.5 * wh) - (PADZBOTstartPosition.height / 2), width: ww, rttl: -64.65, rttr: 51.73, tttr: 17};
+var PADZBOTstartPosition = {mX: 0, mTop: 0, height: parseInt(timgHeight), width:  (wh + ww) * 0.1, top: undefined, rttl: 0, rttr: 0, tttr: 3};
+var PADZBOTendPosition = {mX: -wh * 0.55, mTop: wh * 0.275, height: wh, top: (0.5 * wh) - (PADZBOTstartPosition.height / 2), width: ww, rttl: -64.65, rttr: 51.73, tttr: 17};
 XContainer.style.width = PADZBOTstartPosition.width + "px";
 XContainer.style.height = PADZBOTstartPosition.height + "px";
 const padzbotCloser = document.getElementById("padzbotCloser");
@@ -50,23 +50,27 @@ function homeAnimation(homePageW) {
 
     if (percent <= 0) {
         gear.style.width = width;
+        closer.style.height = (parseInt(gear.style.width) / (82 / 81)) + "px";
         gear.style.right = right;
         gear.style.opacity = 1;
         bottomSpacer.style.opacity = 1;
         homePageW.style.opacity = 1;
     } else if (percent >= 1) {
         gear.style.width = HOMEendPosition.width + "px";
+        closer.style.height = (parseInt(gear.style.width) / (82 / 81)) + "px";
         gear.style.right = HOMEendPosition.right + "px";
         gear.style.opacity = 0;
         homePageW.style.opacity = 0;
         bottomSpacer.style.opacity = 0;
     } else {
         gear.style.width = ((percent * (HOMEendPosition.width - HOMEstartPosition.width)) + HOMEstartPosition.width) + "px";
+        closer.style.height = (parseInt(gear.style.width) / (82 / 81)) + "px";
         gear.style.right = ((percent * (HOMEendPosition.right - HOMEstartPosition.right)) + HOMEstartPosition.right) + "px";
         gear.style.opacity = 1 - percent;
         homePageW.style.opacity = 1 - percent;
         bottomSpacer.style.opacity = 1 - (8 * percent);
     }
+
 
     const parsedSWidth = parseInt(gear.style.width);
     
@@ -206,22 +210,25 @@ function padzbotAnimation(padzbotPageW) {
     }
 
     if (percent <= 0.8) {
+        padzbotCloser.style.height = 0;
+    }
+
+    if (percent <= 0.8 && percent >= 0.7) {
         Xttr.style.position = "";
         Xttl.style.position = "";
-        Xttr.style.marginBottom = "";
-        Xttl.style.marginBottom = "";
-        padzbotCloser.style.height = 0;
+        Xttr.style.transform = `rotateZ(${PADZBOTendPosition.rttr}deg)`;
+        Xttl.style.transform = `rotateZ(${PADZBOTendPosition.rttl}deg)`;
     } else if (percent >= 0.97) {
         Xttr.style.position = "fixed";
         Xttl.style.position = "fixed";
-        Xttr.style.marginBottom = (-PADZBOTendPosition.mTop) + "px";
-        Xttl.style.marginBottom = (PADZBOTendPosition.mTop) + "px";
+        Xttr.style.transform = `rotateZ(${PADZBOTendPosition.rttr}deg) translateX(${PADZBOTendPosition.mX}px) translateY(${(-PADZBOTendPosition.mTop)}px)`;
+        Xttl.style.transform = `rotateZ(${PADZBOTendPosition.rttl}deg) translateX(${PADZBOTendPosition.mX}px)  translateY(${(PADZBOTendPosition.mTop)}px)`;
         padzbotCloser.style.height = (wh * 1.2) + "px";
-    } else {
+    } else if (percent > 0.8){
         Xttr.style.position = "fixed";
         Xttl.style.position = "fixed";
-        Xttr.style.marginBottom = (-((((percent - 0.8) / (0.97 - 0.8)) * (PADZBOTendPosition.mTop - PADZBOTstartPosition.mTop)) + PADZBOTstartPosition.mTop)) + "px"; 
-        Xttl.style.marginBottom = (((((percent - 0.8) / (0.97 - 0.8)) * (PADZBOTendPosition.mTop - PADZBOTstartPosition.mTop)) + PADZBOTstartPosition.mTop)) + "px"; 
+        Xttr.style.transform = `rotateZ(${PADZBOTendPosition.rttr}deg) translateX(${(((((percent - 0.8) / (0.97 - 0.8)) * (PADZBOTendPosition.mX - PADZBOTstartPosition.mX)) + PADZBOTstartPosition.mX))}px) translateY(${(-((((percent - 0.8) / (0.97 - 0.8)) * (PADZBOTendPosition.mTop - PADZBOTstartPosition.mTop)) + PADZBOTstartPosition.mTop))}px)`; 
+        Xttl.style.transform = `rotateZ(${PADZBOTendPosition.rttl}deg) translateX(${(((((percent - 0.8) / (0.97 - 0.8)) * (PADZBOTendPosition.mX - PADZBOTstartPosition.mX)) + PADZBOTstartPosition.mX))}px) translateY(${(((((percent - 0.8) / (0.97 - 0.8)) * (PADZBOTendPosition.mTop - PADZBOTstartPosition.mTop)) + PADZBOTstartPosition.mTop))}px)`; 
         padzbotCloser.style.height = (((percent - 0.8) / (0.97 - 0.8)) * wh * 1.2) + "px"; 
     }
 
@@ -237,7 +244,7 @@ function kenapaAnimation(kenapaPageW) {
         kenapaNeedMin = false;
     }
 
-    if (percent <= 0.05) {
+    if (percent <= 0) {
         kenapaTitle.style.top = (KENAPAstartPosition.kTop) + "px";
         kenapaTitle.style.fontSize = (KENAPAstartPosition.ktF) + "px";
         kenapaTitle.style.position = "";

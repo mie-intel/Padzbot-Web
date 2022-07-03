@@ -91,30 +91,31 @@
 /* IMG ANIMATION */
 .kenapa .icon .offset {
     right: -50%;
-    transform: translateX(0) translateY(-50%);
+    /* transform: translateX(0) translateY(-50%); */
     width: 1em;
     height: 1em;
-    top: 50%;
+    top: calc(50% - 0.5em);
 }
 
 .kenapa .icon .main{
-    right: 50%;
-    transform: translateX(50%) translateY(-50%);
+    right: calc(50% - 6em);
+    /* transform: translateX(50%) translateY(-50%); */
     width: 12em;
     height: 12em;
-    top: 50%;
+    top: calc(50% - 6em);
+
 }
 
 .kenapa .icon .sideLeft, .kenapa .icon .sideCenter, .kenapa .icon .sideRight{
     height: var(--iconWidth);
     width: var(--iconWidth);
-    top: 50%;
-    transform: translateY(-50%);
+    top: calc(50% - (var(--iconWidth) / 2));
+    /* transform: translateY(-50%); */
 }
 
 .kenapa .icon .sideRight {
-    right: 25%;
-    transform: translateX(100%) translateY(-50%);
+    right: calc(25% - var(--iconWidth));
+    /* transform: translateX(100%) translateY(-50%); */
 }
 
 .kenapa .icon .sideLeft {
@@ -122,8 +123,8 @@
 }
 
 .kenapa .icon .sideCenter {
-    right: 50%;
-    transform: translateX(50%) translateY(-50%);
+    right: calc(50% - (var(--iconWidth) / 2));
+    /* transform: translateX(50%) translateY(-50%); */
 }
 
 .kenapa .icon .fixed {
